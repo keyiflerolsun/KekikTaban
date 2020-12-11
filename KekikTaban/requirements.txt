@@ -1,0 +1,4 @@
+requests>=2.24.0
+pytz>=2020.4
+pyfiglet>=0.8.post1
+rich>=9.3.0
