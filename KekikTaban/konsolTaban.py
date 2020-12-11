@@ -6,7 +6,7 @@ from rich.console import Console
 
 class KekikTaban(object):
 
-    konsol = Console(width=70, log_path=False, highlight=False)
+    konsol = Console(log_path=False, highlight=False)
 
     try:
         kullanici_adi = os.getlogin()
@@ -38,8 +38,8 @@ class KekikTaban(object):
 
         self.temizle
         self.bildirim
-        self.konsol.print(self.logo,      style="green")
-        self.konsol.print(self.ust_bilgi, justify="center")
+        self.konsol.print(self.logo,      width=70, style="green")
+        self.konsol.print(self.ust_bilgi, width=70, justify="center")
 
     def logo_yazdir(self, renk:str="turquoise2"):
         self.temizle
@@ -56,8 +56,8 @@ class KekikTaban(object):
         self.konsol.log(bicimlendir)
 
     def hata_salla(self, hata:Exception):
-        bicimlendir = f"[bold yellow2]{str(type(hata).__name__)}[/] [bold magenta]||[/] [bold grey74]{str(hata)}[/]"
-        self.konsol.log(bicimlendir, justify="center")
+        bicimlendir = f"\t  [bold yellow2]{str(type(hata).__name__)}[/] [bold magenta]||[/] [bold grey74]{str(hata)}[/]"
+        self.konsol.print(f"{bicimlendir}", width=70, justify="center")
 
     @property
     def temizle(self):
