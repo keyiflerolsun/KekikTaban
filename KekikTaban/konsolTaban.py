@@ -43,10 +43,10 @@ class KekikTaban(object):
 
     def logo_yazdir(self, renk:str="turquoise2"):
         self.temizle
-        self.konsol.print(self.logo, style=renk)
+        self.konsol.print(self.logo, width=70, style=renk)
 
     def bilgi_yazdir(self):
-        self.konsol.print(self.ust_bilgi, justify="center")
+        self.konsol.print(self.ust_bilgi, width=70, justify="center")
 
     def log_salla(self, sol:str, orta:str, sag:str):
         sol  = f"{sol[:13]}[bright_blue]~[/]"   if len(sol)  > 14 else sol
