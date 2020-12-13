@@ -4,9 +4,40 @@ from pyfiglet import Figlet
 import os, platform, requests, datetime, pytz
 from rich.console import Console
 
-class KekikTaban(object):
+class KekikTaban():
+    """
+    KekikTaban : @KekikAkademi Projelerinin Standart Terminal Tabanı.
 
-    konsol = Console(log_path=False, highlight=False)
+    Kullanım
+    ----------
+        taban = KekikTaban(
+            baslik   = "@KekikAkademi Userbot",
+            aciklama = "kekikUserbot Başlatıldı..",
+            banner   = "kekikUserbot",
+            girinti  = 1
+        )
+
+    Methodlar
+    ----------
+        taban.konsol:
+            Rich Konsol
+
+        taban.logo_yazdir():
+            Konsolu Temizler ve İstenilen Renkte Logoyu Yazdırır..
+
+        taban.bilgi_yazdir():
+            Üst Bilgiyi Yazdırır..
+
+        taban.log_salla(sol:str, orta:str, sag:str):
+            Sol orta ve sağ şeklinde ekranda hizalanmış tek satır log verir..
+
+        taban.hata_salla(hata:Exception):
+            Yakalanan Exception'ı ekranda gösterir..
+    """
+    def __repr__(self) -> str:
+        return f"{__class__.__name__} Sınıfı -- @KekikAkademi projelerinde standart terminal tabanı olması amacıyla kodlanmıştır.."
+
+    konsol:Console = Console(log_path=False, highlight=False)
 
     try:
         kullanici_adi = os.getlogin()
@@ -31,7 +62,9 @@ class KekikTaban(object):
     ust_bilgi += f"[turquoise2]{oturum}[/]\n"
     ust_bilgi += f"[yellow2]{global_ip}[/]\n"
 
-    def __init__(self, baslik:str, aciklama:str, banner:str, girinti:int=0, stil:str="stop"):
+    def __init__(self, baslik:str, aciklama:str, banner:str, girinti:int=0, stil:str="stop") -> None:
+        "Varsayılan Olarak; konsolu temizler, logoyu ve üst bilgiyi yazdırır.."
+
         self.pencere_basligi = baslik
         self.bildirim_metni  = aciklama
         self.logo = Figlet(font=stil).renderText(f"{' ' * girinti}{banner}")
@@ -41,33 +74,41 @@ class KekikTaban(object):
         self.konsol.print(self.logo,      width=70, style="green")
         self.konsol.print(self.ust_bilgi, width=70, justify="center")
 
-    def logo_yazdir(self, renk:str="turquoise2"):
+    def logo_yazdir(self, renk:str="turquoise2") -> None:
+        "Konsolu Temizler ve İstenilen Renkte Logoyu Yazdırır.."
+
         self.temizle
         self.konsol.print(self.logo, width=70, style=renk)
 
     def bilgi_yazdir(self):
+        "Üst Bilgiyi Yazdırır.."
+
         self.konsol.print(self.ust_bilgi, width=70, justify="center")
 
-    def log_salla(self, sol:str, orta:str, sag:str):
+    def log_salla(self, sol:str, orta:str, sag:str) -> None:
+        "Sol orta ve sağ şeklinde ekranda hizalanmış tek satır log verir.."
+
         sol  = f"{sol[:13]}[bright_blue]~[/]"   if len(sol)  > 14 else sol
         orta = f"{orta[:19]}[bright_blue]~[/]"  if len(orta) > 20 else orta
         sag  = f"{sag[:14]}[bright_blue]~[/]"   if len(sag)  > 15 else sag
         bicimlendir = '[bold red]{:14}[/] [green]||[/] [yellow]{:20}[/] {:>2}[green]||[/] [magenta]{:^16}[/]'.format(sol, orta, "", sag)
         self.konsol.log(bicimlendir)
 
-    def hata_salla(self, hata:Exception):
+    def hata_salla(self, hata:Exception) -> None:
+        "Yakalanan Exception'ı ekranda gösterir.."
+
         bicimlendir = f"\t  [bold yellow2]{str(type(hata).__name__)}[/] [bold magenta]||[/] [bold grey74]{str(hata)}[/]"
         self.konsol.print(f"{bicimlendir}", width=70, justify="center")
 
     @property
-    def temizle(self):
+    def temizle(self) -> None:
         if self.isletim_sistemi == "Windows":
             os.system("cls")
         else:
             os.system("clear")
 
     @property
-    def win_baslik(self):
+    def win_baslik(self) -> None:
         if self.isletim_sistemi == "Windows":
             try:
                 import ctypes
@@ -78,7 +119,7 @@ class KekikTaban(object):
             ctypes.windll.kernel32.SetConsoleTitleW(f"{self.pencere_basligi}")
 
     @property
-    def bildirim(self):
+    def bildirim(self) -> None:
         if platform.machine() == "aarch64":
             return
         elif self.kullanici_adi == "gitpod":
