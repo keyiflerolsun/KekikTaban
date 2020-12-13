@@ -62,28 +62,29 @@ class KekikTaban():
     ust_bilgi += f"[turquoise2]{oturum}[/]\n"
     ust_bilgi += f"[yellow2]{global_ip}[/]\n"
 
-    def __init__(self, baslik:str, aciklama:str, banner:str, girinti:int=0, stil:str="stop") -> None:
+    def __init__(self, baslik:str, aciklama:str, banner:str, genislik:int=70, girinti:int=0, stil:str="stop") -> None:
         "Varsayılan Olarak; konsolu temizler, logoyu ve üst bilgiyi yazdırır.."
 
+        self.genislik = genislik
         self.pencere_basligi = baslik
         self.bildirim_metni  = aciklama
         self.logo = Figlet(font=stil).renderText(f"{' ' * girinti}{banner}")
 
         self.temizle
         self.bildirim
-        self.konsol.print(self.logo,      width=70, style="green")
-        self.konsol.print(self.ust_bilgi, width=70, justify="center")
+        self.konsol.print(self.logo,      width=genislik, style="green")
+        self.konsol.print(self.ust_bilgi, width=genislik, justify="center")
 
     def logo_yazdir(self, renk:str="turquoise2") -> None:
         "Konsolu Temizler ve İstenilen Renkte Logoyu Yazdırır.."
 
         self.temizle
-        self.konsol.print(self.logo, width=70, style=renk)
+        self.konsol.print(self.logo, width=self.genislik, style=renk)
 
     def bilgi_yazdir(self):
         "Üst Bilgiyi Yazdırır.."
 
-        self.konsol.print(self.ust_bilgi, width=70, justify="center")
+        self.konsol.print(self.ust_bilgi, width=self.genislik, justify="center")
 
     def log_salla(self, sol:str, orta:str, sag:str) -> None:
         "Sol orta ve sağ şeklinde ekranda hizalanmış tek satır log verir.."
@@ -98,7 +99,7 @@ class KekikTaban():
         "Yakalanan Exception'ı ekranda gösterir.."
 
         bicimlendir = f"\t  [bold yellow2]{str(type(hata).__name__)}[/] [bold magenta]||[/] [bold grey74]{str(hata)}[/]"
-        self.konsol.print(f"{bicimlendir}", width=70, justify="center")
+        self.konsol.print(f"{bicimlendir}", width=self.genislik, justify="center")
 
     @property
     def temizle(self) -> None:
