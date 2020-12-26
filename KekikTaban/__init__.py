@@ -4,7 +4,7 @@ YAZAR       = 'keyiflerolsun'
 YAZAR_POSTA = 'keyiflerolsun@gmail.com'
 
 PAKET       = 'KekikTaban'
-VERSIYON    = '0.0.5'
+VERSIYON    = '0.0.6'
 
 REPO        = 'https://github.com/keyiflerolsun/KekikTaban'
 ACIKLAMA    = '@KekikAkademi adına yazılmış Projelerin Terminal Tabanı'

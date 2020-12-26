@@ -62,7 +62,7 @@ class KekikTaban():
     ust_bilgi += f"[turquoise2]{oturum}[/]\n"
     ust_bilgi += f"[yellow2]{global_ip}[/]\n"
 
-    def __init__(self, baslik:str, aciklama:str, banner:str, genislik:int=70, girinti:int=0, stil:str="stop") -> None:
+    def __init__(self, baslik:str, aciklama:str, banner:str, genislik:int=70, girinti:int=0, stil:str="stop", bildirim:bool=False) -> None:
         "Varsayılan Olarak; konsolu temizler, logoyu ve üst bilgiyi yazdırır.."
 
         self.genislik = genislik
@@ -71,7 +71,9 @@ class KekikTaban():
         self.logo = Figlet(font=stil).renderText(f"{' ' * girinti}{banner}")
 
         self.temizle
-        self.bildirim
+
+        if bildirim: self.bildirim
+
         self.konsol.print(self.logo,      width=genislik, style="green")
         self.konsol.print(self.ust_bilgi, width=genislik, justify="center")
 
