@@ -56,7 +56,7 @@ class KekikTaban():
     saat  = datetime.datetime.now(pytz.timezone("Turkey")).strftime("%H:%M")
     zaman = tarih + " | " + saat
 
-    global_ip = requests.get('https://api.ipify.org').text
+    global_ip = requests.get('http://ip-api.com/json').json()['query']
 
     ust_bilgi = f"[bright_red]{cihaz}[/]\t\t[bright_yellow]{zaman}[/]\n\n"
     ust_bilgi += f"[turquoise2]{oturum}[/]\n"
