@@ -9,7 +9,7 @@
 ![PyPI - Wheel](https://img.shields.io/pypi/wheel/KekikTaban)
 ![PyPI - License](https://img.shields.io/pypi/l/KekikTaban)
 
-**[@KekikAkademi](https://github.com/KekikAkademi)** *adına yazılmış Projelerin Terminal Tabanı*
+**[@KekikAkademi](https://github.com/KekikAkademi)** *adına yazılmış Projelerin Terminal Tabanı ve Biraz Dahası*
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/keyiflerolsun/)
@@ -62,9 +62,13 @@ except Exception as hata:
     taban.hata_salla(hata)
 ```
 
+## 💸 Bağış Yap
+
+**[☕️ Kahve Ismarla](https://KekikAkademi.org/Kahve)**
+
 ## 🌐 Telif Hakkı ve Lisans
 
-* *Copyright (C) 2020 by* [keyiflerolsun](https://github.com/keyiflerolsun) ❤️️
+* *Copyright (C) 2021 by* [keyiflerolsun](https://github.com/keyiflerolsun) ❤️️
 * [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/keyiflerolsun/keyifUserBot/blob/master/LICENSE) *Koşullarına göre lisanslanmıştır..*
 
 ## ♻️ İletişim
