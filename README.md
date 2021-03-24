@@ -24,10 +24,6 @@ pip install KekikTaban
 pip install -U KekikTaban
 ```
 
-## 📝 Proje İlerlemesi
-
-- [x] `v0.0.1` *ile* **vira..**
-
 ### <img src="https://i.imgur.com/ETZ1ABF.png" height="48" align="center"> Kullanım
 
 ```python
