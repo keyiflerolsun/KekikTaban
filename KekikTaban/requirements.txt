@@ -2,4 +2,3 @@ requests
 pytz
 pyfiglet
 rich
-myst_parser
