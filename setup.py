@@ -3,22 +3,17 @@
 from setuptools import setup
 from io import open
 
-from KekikTaban import YAZAR, YAZAR_POSTA, PAKET, VERSIYON, REPO, ACIKLAMA, ANAHTAR_KLM
-
-with open(f'{PAKET}/requirements.txt') as dosya:
-    GEREKSINIM = dosya.read().splitlines()
-
 setup(
-    author       = YAZAR,
-    author_email = YAZAR_POSTA,
+    author       = "keyiflerolsun",
+    author_email = "keyiflerolsun@gmail.com",
 
-    packages     = [PAKET],
+    packages     = ["KekikTaban"],
 
-    name         = PAKET,
-    version      = VERSIYON,
-    url          = REPO,
-    description  = ACIKLAMA,
-    keywords     = ANAHTAR_KLM,
+    name         = "KekikTaban",
+    version      = "0.1.3",
+    url          = "https://github.com/keyiflerolsun/KekikTaban",
+    description  = '@KekikAkademi adına yazılmış Projelerin Terminal Tabanı ve Biraz Dahası',
+    keywords     = ["KekikTaban", 'KekikAkademi', 'keyiflerolsun'],
 
     long_description_content_type   = "text/markdown",
     long_description                = "".join(open("README.md", encoding="utf-8").readlines()),
@@ -32,5 +27,10 @@ setup(
     ],
 
     python_requires     = '>=3.6',
-    install_requires    = GEREKSINIM
+    install_requires    = [
+        "requests",
+        "pytz",
+        "pyfiglet",
+        "rich"
+    ]
 )

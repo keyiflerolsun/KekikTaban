@@ -1,15 +1,5 @@
 # Bu araç @keyiflerolsun tarafından | @KekikAkademi için yazılmıştır.
 
-YAZAR       = 'keyiflerolsun'
-YAZAR_POSTA = 'keyiflerolsun@gmail.com'
-
-PAKET       = 'KekikTaban'
-VERSIYON    = '0.1.2'
-
-REPO        = 'https://github.com/keyiflerolsun/KekikTaban'
-ACIKLAMA    = '@KekikAkademi adına yazılmış Projelerin Terminal Tabanı ve Biraz Dahası'
-ANAHTAR_KLM = [PAKET, 'KekikAkademi', 'keyiflerolsun']
-
 ####
 from KekikTaban.konsolTaban import KekikTaban
 from KekikTaban.ascii_decode import slugify
